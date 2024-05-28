@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LinearEndpoint" load_steps=2 format=3 uid="uid://cebqejs8r1twd"]
+
+[ext_resource type="Script" path="res://buttplug/LinearEndpoint.gd" id="1_rbnx2"]
+
+[resource]
+script = ExtResource("1_rbnx2")
+name = "Linear"

@@ -1,0 +1,246 @@
+[gd_scene load_steps=13 format=3 uid="uid://bbw0ugxtau8ag"]
+
+[ext_resource type="Script" path="res://example/example.gd" id="1_jvi87"]
+[ext_resource type="PackedScene" uid="uid://c84plc3l7oskn" path="res://buttplug/control_center/buttplug_control_center.tscn" id="2_338lb"]
+[ext_resource type="PackedScene" uid="uid://hm5dp87ojixg" path="res://buttplug/VibrationActuator.tscn" id="3_kj1if"]
+[ext_resource type="Resource" uid="uid://be22gfx2e8e86" path="res://example/vibrator.tres" id="4_46cxw"]
+[ext_resource type="PackedScene" uid="uid://dlk7m88ijvrjq" path="res://buttplug/LinearActuator.tscn" id="4_w2tsn"]
+[ext_resource type="Resource" uid="uid://cebqejs8r1twd" path="res://example/linear.tres" id="6_ui3k0"]
+
+[sub_resource type="Animation" id="Animation_yy7ao"]
+resource_name = "vibrate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%VibrationActuator:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%vibrator_slider:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yuajn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%VibrationActuator:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%vibrator_slider:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n24l7"]
+_data = {
+"RESET": SubResource("Animation_yuajn"),
+"vibrate": SubResource("Animation_yy7ao")
+}
+
+[sub_resource type="Animation" id="Animation_0x12a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LinearActuator:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%linear_slider:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_n3o3f"]
+resource_name = "linear"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LinearActuator:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%linear_slider:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4dfnw"]
+_data = {
+"RESET": SubResource("Animation_0x12a"),
+"linear": SubResource("Animation_n3o3f")
+}
+
+[node name="example" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jvi87")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="show_config" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Buttplug config"
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="vibrator_label" type="Label" parent="VBoxContainer/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Vibrator"
+
+[node name="vibrator_pattern" type="Button" parent="VBoxContainer/Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "pattern"
+
+[node name="vibrator_slider" type="VSlider" parent="VBoxContainer/Control/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.01
+
+[node name="vibrator_AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Control/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_n24l7")
+}
+
+[node name="VibrationActuator" parent="VBoxContainer/Control/HBoxContainer/VBoxContainer" instance=ExtResource("3_kj1if")]
+unique_name_in_owner = true
+endpoint = ExtResource("4_46cxw")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="linear_label" type="Label" parent="VBoxContainer/Control/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Linear"
+
+[node name="linear_pattern" type="Button" parent="VBoxContainer/Control/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "pattern"
+
+[node name="linear_slider" type="VSlider" parent="VBoxContainer/Control/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.01
+
+[node name="linear_AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Control/HBoxContainer/VBoxContainer2"]
+libraries = {
+"": SubResource("AnimationLibrary_4dfnw")
+}
+
+[node name="LinearActuator" parent="VBoxContainer/Control/HBoxContainer/VBoxContainer2" node_paths=PackedStringArray("animation_player") instance=ExtResource("4_w2tsn")]
+endpoint = ExtResource("6_ui3k0")
+animation_player = NodePath("../linear_AnimationPlayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttplug_control_center" parent="CanvasLayer/PanelContainer" instance=ExtResource("2_338lb")]
+layout_mode = 2
+endpoints = Array[Resource("res://buttplug/Endpoint.gd")]([ExtResource("4_46cxw"), ExtResource("6_ui3k0")])
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/show_config" to="." method="_on_show_config_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/HBoxContainer/VBoxContainer/vibrator_pattern" to="." method="_on_vibrator_pattern_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Control/HBoxContainer/VBoxContainer/vibrator_slider" to="." method="_on_vibrator_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Control/HBoxContainer/VBoxContainer2/linear_pattern" to="." method="_on_linear_pattern_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Control/HBoxContainer/VBoxContainer2/linear_slider" to="." method="_on_linear_slider_value_changed"]

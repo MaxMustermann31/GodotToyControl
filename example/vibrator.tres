@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="VibrationEndpoint" load_steps=2 format=3 uid="uid://be22gfx2e8e86"]
 
-[ext_resource type="Script" path="res://buttplug/VibrationEndpoint.gd" id="1_bdmej"]
+[ext_resource type="Script" path="res://GodotToyControl/VibrationEndpoint.gd" id="1_bdmej"]
 
 [resource]
 script = ExtResource("1_bdmej")

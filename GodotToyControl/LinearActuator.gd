@@ -6,7 +6,7 @@ extends Node
 @export var animation_player: AnimationPlayer
 
 func actuate(value: float, time: float):
-	Buttplug.linear_endpoint(endpoint, value, time)
+	GodotToyControl.linear_endpoint(endpoint, value, time)
 
 # private
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://hm5dp87ojixg"]
 
-[ext_resource type="Script" path="res://buttplug/VibrationActuator.gd" id="1_61dc5"]
+[ext_resource type="Script" path="res://GodotToyControl/VibrationActuator.gd" id="1_61dc5"]
 
 [node name="VibrationActuator" type="Node"]
 script = ExtResource("1_61dc5")

@@ -10,14 +10,14 @@ config_version=5
 
 [application]
 
-config/name="buttplug"
+config/name="GodotToyControl"
 run/main_scene="res://example/example.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Buttplug="*res://buttplug/Buttplug.gd"
+GodotToyControl="*res://GodotToyControl/GodotToyControl.gd"
 GSClient="*res://addons/gspot/gsclient.gd"
 
 [editor_plugins]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c84plc3l7oskn"]
 
-[ext_resource type="Script" path="res://buttplug/control_center/buttplug_control_center.gd" id="1_n8fkn"]
-[ext_resource type="Script" path="res://buttplug/control_center/control_center_endpoints.gd" id="2_8dvpa"]
-[ext_resource type="Script" path="res://buttplug/control_center/control_center_devices.gd" id="3_syeaa"]
+[ext_resource type="Script" path="res://GodotToyControl/control_center/buttplug_control_center.gd" id="1_n8fkn"]
+[ext_resource type="Script" path="res://GodotToyControl/control_center/control_center_endpoints.gd" id="2_8dvpa"]
+[ext_resource type="Script" path="res://GodotToyControl/control_center/control_center_devices.gd" id="3_syeaa"]
 
 [node name="buttplug_control_center" type="Control"]
 layout_mode = 3
@@ -25,11 +25,17 @@ grow_vertical = 2
 layout_mode = 2
 alignment = 2
 
-[node name="url" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+[node name="host" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-placeholder_text = "ws://localhost:12345"
+placeholder_text = "localhost"
+
+[node name="port" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+placeholder_text = "12345"
 
 [node name="connect" type="Button" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true

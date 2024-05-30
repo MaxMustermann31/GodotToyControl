@@ -7,5 +7,5 @@ extends Node
 		if is_equal_approx(value, v):
 			return
 		value = v
-		Buttplug.vibrate_endpoint(endpoint, value)
+		GodotToyControl.vibrate_endpoint(endpoint, value)
 		

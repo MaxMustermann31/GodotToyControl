@@ -1,11 +1,38 @@
 [gd_scene load_steps=13 format=3 uid="uid://bbw0ugxtau8ag"]
 
 [ext_resource type="Script" path="res://example/example.gd" id="1_jvi87"]
-[ext_resource type="PackedScene" uid="uid://c84plc3l7oskn" path="res://buttplug/control_center/buttplug_control_center.tscn" id="2_338lb"]
-[ext_resource type="PackedScene" uid="uid://hm5dp87ojixg" path="res://buttplug/VibrationActuator.tscn" id="3_kj1if"]
+[ext_resource type="PackedScene" uid="uid://c84plc3l7oskn" path="res://GodotToyControl/control_center/buttplug_control_center.tscn" id="2_338lb"]
+[ext_resource type="PackedScene" uid="uid://hm5dp87ojixg" path="res://GodotToyControl/VibrationActuator.tscn" id="3_kj1if"]
 [ext_resource type="Resource" uid="uid://be22gfx2e8e86" path="res://example/vibrator.tres" id="4_46cxw"]
-[ext_resource type="PackedScene" uid="uid://dlk7m88ijvrjq" path="res://buttplug/LinearActuator.tscn" id="4_w2tsn"]
+[ext_resource type="PackedScene" uid="uid://dlk7m88ijvrjq" path="res://GodotToyControl/LinearActuator.tscn" id="4_w2tsn"]
 [ext_resource type="Resource" uid="uid://cebqejs8r1twd" path="res://example/linear.tres" id="6_ui3k0"]
+
+[sub_resource type="Animation" id="Animation_yuajn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%VibrationActuator:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%vibrator_slider:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_yy7ao"]
 resource_name = "vibrate"
@@ -33,33 +60,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_yuajn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%VibrationActuator:value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%vibrator_slider:value")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n24l7"]
@@ -237,7 +237,7 @@ grow_vertical = 2
 
 [node name="buttplug_control_center" parent="CanvasLayer/PanelContainer" instance=ExtResource("2_338lb")]
 layout_mode = 2
-endpoints = Array[Resource("res://buttplug/Endpoint.gd")]([ExtResource("4_46cxw"), ExtResource("6_ui3k0")])
+endpoints = Array[Resource("res://GodotToyControl/Endpoint.gd")]([ExtResource("4_46cxw"), ExtResource("6_ui3k0")])
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/show_config" to="." method="_on_show_config_pressed"]
 [connection signal="pressed" from="VBoxContainer/Control/HBoxContainer/VBoxContainer/vibrator_pattern" to="." method="_on_vibrator_pattern_pressed"]

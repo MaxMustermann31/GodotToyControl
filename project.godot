@@ -18,3 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Buttplug="*res://buttplug/Buttplug.gd"
+GSClient="*res://addons/gspot/gsclient.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gspot/plugin.cfg")

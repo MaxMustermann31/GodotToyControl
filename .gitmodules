@@ -1,0 +1,3 @@
+[submodule "external/gspot"]
+	path = external/gspot
+	url = https://github.com/deadpixelsociety/gspot

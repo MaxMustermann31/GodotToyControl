@@ -1,6 +1,7 @@
 extends Control
 
 @export var endpoints: Array[Endpoint] = []
+@export var show_send_message: bool = false
 
 @onready var host = %host
 @onready var port = %port
@@ -9,9 +10,8 @@ extends Control
 @onready var endpoints_node = %endpoints
 
 func print_log(value: String):
-	log_textfield.append_text(value + "\n")
-
-func print_err_log(_resp, value: String):
+	if value.begins_with("Sending message") and not show_send_message:
+		return
 	log_textfield.append_text(value + "\n")
 
 func set_url_editable(value: bool):
@@ -38,7 +38,6 @@ func _on_connect_pressed():
 func _ready():
 	GSClient.client_connection_changed.connect(self.gsclient_connection_changed)
 	GSClient.client_message.connect(self.print_log)
-	GSClient.client_error.connect(self.print_err_log)
 	set_connect_text(GSClient.get_client_state() == GSClient.ClientState.CONNECTED)
 	set_connect_button_enabled_state()
 	set_url_editable(GSClient.get_client_state() == GSClient.ClientState.DISCONNECTED)

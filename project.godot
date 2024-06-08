@@ -18,11 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 GSClient="*res://addons/gspot/gsclient.gd"
-GodotToyControl="*res://GodotToyControl/GodotToyControl.gd"
+GodotToyControl="*res://addons/godottoycontrol/GodotToyControl.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gspot/plugin.cfg")
+enabled=PackedStringArray("res://addons/godottoycontrol/plugin.cfg", "res://addons/gspot/plugin.cfg")
 
 [gspot]
 

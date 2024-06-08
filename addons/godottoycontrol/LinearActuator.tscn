@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dlk7m88ijvrjq"]
 
-[ext_resource type="Script" path="res://GodotToyControl/LinearActuator.gd" id="1_nbh3f"]
+[ext_resource type="Script" path="res://addons/godottoycontrol/LinearActuator.gd" id="1_nbh3f"]
 
 [node name="LinearActuator" type="Node"]
 script = ExtResource("1_nbh3f")

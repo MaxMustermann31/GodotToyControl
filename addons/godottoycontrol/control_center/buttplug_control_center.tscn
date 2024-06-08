@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c84plc3l7oskn"]
 
-[ext_resource type="Script" path="res://GodotToyControl/control_center/buttplug_control_center.gd" id="1_n8fkn"]
-[ext_resource type="Script" path="res://GodotToyControl/control_center/control_center_endpoints.gd" id="2_8dvpa"]
-[ext_resource type="Script" path="res://GodotToyControl/control_center/control_center_devices.gd" id="3_syeaa"]
+[ext_resource type="Script" path="res://addons/godottoycontrol/control_center/buttplug_control_center.gd" id="1_n8fkn"]
+[ext_resource type="Script" path="res://addons/godottoycontrol/control_center/control_center_endpoints.gd" id="2_8dvpa"]
+[ext_resource type="Script" path="res://addons/godottoycontrol/control_center/control_center_devices.gd" id="3_syeaa"]
 
 [node name="buttplug_control_center" type="Control"]
 layout_mode = 3
